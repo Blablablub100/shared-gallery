@@ -40,7 +40,6 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             }
         };
 
-
         public ViewHolderText(View itemView) {
             super(itemView);
             // Initiate view
@@ -48,7 +47,6 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             memoryTextTextView = (TextView) itemView.findViewById(R.id.textView_memory_text_text);
             itemView.setOnClickListener(myListener);
         }
-
 
         public void showMemoryDetails(Memory memory, Context context){
             // Attach values for each item
@@ -66,24 +64,40 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+
+
     public class ViewHolderPic extends RecyclerView.ViewHolder {
 
         private TextView memoryNameTextView, memoryDescTextView;
         private ImageView memoryPicImageView;
+        private Memory memory;
+        private Context context;
+
+        private final View.OnClickListener myListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MemoryPicViewActivity.class);
+                intent.putExtra("filepath", memory.getFile().getAbsolutePath());
+                context.startActivity(intent);
+            }
+        };
 
         public ViewHolderPic(View itemView) {
             super(itemView);
             memoryNameTextView = (TextView) itemView.findViewById(R.id.textView_memory_pic_name);
             memoryDescTextView = (TextView) itemView.findViewById(R.id.textView_memory_pic_decription);
             memoryPicImageView = (ImageView) itemView.findViewById(R.id.imageView_memory_pic_pic);
+            itemView.setOnClickListener(myListener);
         }
 
-        public void showMemoryDetails(Memory memory) {
+        public void showMemoryDetails(Memory memory, Context ctx) {
             String memoryName = memory.getName();
             String memoryDescription = memory.getDescription();
             memoryNameTextView.setText(memoryName);
             memoryDescTextView.setText(memoryDescription);
-            Picasso.with(context).load(memory.getFile()).centerCrop().resize(200, 300).into(memoryPicImageView);
+            Picasso.with(ctx).load(memory.getFile()).centerCrop().resize(200, 300).into(memoryPicImageView);
+            this.memory = memory;
+            this.context = ctx;
         }
 
     }
@@ -165,7 +179,7 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((ViewHolderText) holder).showMemoryDetails(memory, context);
                 break;
             case 1:
-                ((ViewHolderPic) holder).showMemoryDetails(memory);
+                ((ViewHolderPic) holder).showMemoryDetails(memory, context);
                 break;
             case 2:
                 ((ViewHolderVid) holder).showMemoryDetails(memory);

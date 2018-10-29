@@ -24,7 +24,9 @@
         <activity android:name=".AddExperience" />
         <activity android:name=".ExperienceViewActivity" />
         <activity android:name=".AddMemoryActivity" />
-        <activity android:name=".MemoryTextViewActivity"></activity>
+        <activity android:name=".MemoryTextViewActivity" />
+        <activity android:name=".MemoryPicViewActivity" />
+        <activity android:name=".MemoryVidViewActivity"></activity>
     </application>
 
 </manifest>
