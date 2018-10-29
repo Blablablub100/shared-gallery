@@ -106,15 +106,27 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         private TextView memoryNameTextView, memoryDescTextView;
         private ImageView memoryThumbImageView;
+        private Memory memory;
+        private Context context;
+
+        private final View.OnClickListener myListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, MemoryVidViewActivity.class);
+                intent.putExtra("filepath", memory.getFile().getAbsolutePath());
+                context.startActivity(intent);
+            }
+        };
 
         public ViewHolderVid(View itemView) {
             super(itemView);
             memoryNameTextView = (TextView) itemView.findViewById(R.id.textView_memory_vid_name);
             memoryDescTextView = (TextView) itemView.findViewById(R.id.textView_memory_vid_decription);
             memoryThumbImageView = (ImageView) itemView.findViewById(R.id.imageView_memory_vid_thumb);
+            itemView.setOnClickListener(myListener);
         }
 
-        public void showMemoryDetails(Memory memory) {
+        public void showMemoryDetails(Memory memory, Context ctx) {
             String memoryName = memory.getName();
             String memoryDescription = memory.getDescription();
             memoryNameTextView.setText(memoryName);
@@ -122,6 +134,8 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             Bitmap bitmap = ThumbnailUtils.createVideoThumbnail(memory.getFile().getAbsolutePath(),
                     MediaStore.Video.Thumbnails.MINI_KIND);
             memoryThumbImageView.setImageBitmap(bitmap);
+            this.memory = memory;
+            this.context = ctx;
         }
 
     }
@@ -182,7 +196,7 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 ((ViewHolderPic) holder).showMemoryDetails(memory, context);
                 break;
             case 2:
-                ((ViewHolderVid) holder).showMemoryDetails(memory);
+                ((ViewHolderVid) holder).showMemoryDetails(memory, context);
                 break;
         }
     }

@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".MemoryVidViewActivity">
 
+    <VideoView
+        android:id="@+id/imageView_memory_vid_view_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@+id/editText_memory_vid_view_decription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_memory_vid_view_name" />
+
+    <TextView
+        android:id="@+id/textView_memory_vid_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_memory_vid_view_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_memory_vid_view_decription"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_memory_vid_view_save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_memory_vid_view_thumb" />
+
+    <Button
+        android:id="@+id/button_memory_vid_view_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="11dp"
+        android:text="Speichern"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText_memory_vid_view_decription"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_memory_vid_view_thumb" />
+
+    <ImageView
+        android:id="@+id/imageView_play_vid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_memory_vid_view_thumb"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_memory_vid_view_thumb"
+        app:layout_constraintStart_toStartOf="@+id/imageView_memory_vid_view_thumb"
+        app:layout_constraintTop_toTopOf="@+id/imageView_memory_vid_view_thumb"
+        app:srcCompat="@android:drawable/ic_media_play" />
 </android.support.constraint.ConstraintLayout>
