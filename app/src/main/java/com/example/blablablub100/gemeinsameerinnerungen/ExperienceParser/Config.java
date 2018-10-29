@@ -37,7 +37,7 @@ public class Config {
         return FileUtil.getBasedir() + "/" + generateFolderName(e) + "/";
     }
 
-    protected static Memory generateMemoryData(File content, File description) {
+    public static Memory generateMemoryData(File content, File description) {
         String string = content.getName();
         string = string.replaceAll("/", "");
         String[] data = string.split("_");
@@ -55,7 +55,7 @@ public class Config {
         return null;
     }
 
-    protected static File generateDescriptionFile(File file) {
+    public static File generateDescriptionFile(File file) {
         String string = file.getAbsolutePath();
         string = string.substring(0, string.lastIndexOf("."));
         string = string + "_description.txt";

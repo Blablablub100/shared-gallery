@@ -5,6 +5,8 @@ import android.os.Build;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -35,5 +37,35 @@ public class ReadWriter {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void writeFile(String path, String text) {
+        File file = new File(path);
+        FileOutputStream fop = null;
+        try {
+            fop = new FileOutputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // if file doesnt exists, then create it
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // get the content in bytes
+        byte[] contentInBytes = text.getBytes();
+
+        try {
+            fop.write(contentInBytes);
+            fop.flush();
+            fop.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

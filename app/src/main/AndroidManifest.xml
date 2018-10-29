@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".AddExperience" />
         <activity android:name=".ExperienceViewActivity" />
-        <activity android:name=".AddMemoryActivity"></activity>
+        <activity android:name=".AddMemoryActivity" />
+        <activity android:name=".MemoryTextViewActivity"></activity>
     </application>
 
 </manifest>
