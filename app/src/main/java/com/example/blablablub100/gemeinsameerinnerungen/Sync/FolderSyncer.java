@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class FolderSyncer {
 
     private static final String ACCESS_TOKEN =
-            "XsQrhWorfyYAAAAAAAA8ML8uQYZRziqiELZaeK7QOVxDjNsH0ijlpwHcN9WbwGzi";
+       "zi";
 
     static DbxRequestConfig config =
             DbxRequestConfig.newBuilder("dropbox/java-tutorial").build();
