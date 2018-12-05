@@ -41,7 +41,7 @@ public class MemoryPicViewActivity extends AppCompatActivity {
         memoryDesc.setText(ReadWriter.readFile(Config.generateDescriptionFile(memory.getFile()).getAbsolutePath()));
         memoryName.setText(memory.getName());
         memoryDate.setText(Config.printdf.format(memory.getDate()));
-        Picasso.with(getBaseContext()).load(memory.getFile()).centerCrop().resize(200, 300).into(img);
+        Picasso.with(getBaseContext()).load(memory.getFile()).centerCrop().resize(1080, 1920).into(img);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

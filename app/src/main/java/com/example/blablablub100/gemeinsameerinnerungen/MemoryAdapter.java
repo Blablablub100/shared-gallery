@@ -206,11 +206,5 @@ public class MemoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return memories.size();
     }
 
-
-
-
-
-
-
 }
 

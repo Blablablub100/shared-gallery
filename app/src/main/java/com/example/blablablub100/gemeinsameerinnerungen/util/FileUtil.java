@@ -1,18 +1,12 @@
 package com.example.blablablub100.gemeinsameerinnerungen.util;
 
-import android.net.Uri;
 import android.os.Environment;
-import android.support.design.widget.Snackbar;
 
 import com.example.blablablub100.gemeinsameerinnerungen.ExperienceParser.Config;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,7 +39,7 @@ public class FileUtil {
         return true;
     }
 
-    public static File[] listeDirectoryFiles() {
+    public static File[] listDirectoryFiles() {
         return basedir.listFiles();
     }
 
@@ -84,6 +78,23 @@ public class FileUtil {
         return res;
     }
 
+    public static List<File> listAllFiles(String directoryName, List<File> files) {
+        File directory = new File(directoryName);
+        List<File> res = new ArrayList<>();
+
+        // Get all files from a directory.
+        File[] fList = directory.listFiles();
+        if (fList != null) {
+            for (File file : fList) {
+                if (file.isFile()) {
+                    files.add(file);
+                } else if (file.isDirectory()) {
+                    res.addAll(listAllFiles(file.getAbsolutePath(), res));
+                }
+            }
+        }
+        return res;
+    }
 
 
 }

@@ -15,7 +15,7 @@ public class ExperienceReader {
 
     public static List<Experience> readExperiences() {
         List<Experience> experiences = new ArrayList<Experience>();
-        File[] files = FileUtil.listeDirectoryFiles();
+        File[] files = FileUtil.listDirectoryFiles();
         if (files == null || files.length == 0) return experiences;
         for (File file: files) {
             if (file.isDirectory()) {

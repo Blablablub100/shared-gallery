@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -26,7 +27,8 @@
         <activity android:name=".AddMemoryActivity" />
         <activity android:name=".MemoryTextViewActivity" />
         <activity android:name=".MemoryPicViewActivity" />
-        <activity android:name=".MemoryVidViewActivity"></activity>
+        <activity android:name=".MemoryVidViewActivity" />
+        <activity android:name=".SyncActivity"></activity>
     </application>
 
 </manifest>

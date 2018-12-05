@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        FloatingActionButton syncFab = findViewById(R.id.fab_open_sync);
+        syncFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startSync = new Intent(getBaseContext(), SyncActivity.class);
+                startActivity(startSync);
+            }
+        });
+
+
 
         // for showing the list
         Config.initExperiences();
